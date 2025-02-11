@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Transition</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Menu button */
+    .menu-button {
+      width: 40px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    .menu-button span {
+      display: block;
+      height: 4px;
+      width: 100%;
+      background: black;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Khi nút active */
+    .menu-button.active span:nth-child(1) {
+      transform: rotate(45deg) translateY(10px);
+    }
+
+    .menu-button.active span:nth-child(2) {
+      transform: rotate(-45deg) translateY(-10px);
+    }
+
+    /* Overlay menu */
+    .overlay-menu {
+      position: fixed;
+      top: 0;
+      right: -100%; /* Ẩn menu */
+      width: 100%;
+      height: 100%;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: right 0.5s ease;
+      z-index: 5;
+    }
+
+    .overlay-menu.active {
+      right: 0; /* Hiện menu */
+    }
+
+    .overlay-menu a {
+      text-decoration: none;
+      font-size: 2rem;
+      margin: 15px 0;
+      color: black;
+      transition: color 0.3s ease;
+    }
+
+    .overlay-menu a:hover {
+      color: gray;
+    }
+
+    /* Button */
+    button {
+      background: black;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu-button" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="overlay-menu" id="menu">
+    <a href="#">Home</a>
+    <a href="#">Company</a>
+    <a href="#">Dasion Training</a>
+    <a href="#">Dasion</a>
+    <button>Contact Us</button>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      const button = document.querySelector('.menu-button');
+      menu.classList.toggle('active');
+      button.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>

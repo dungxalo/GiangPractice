@@ -3,12 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", serif;
-}
-.section2 {
-    overflow: hidden;
-
-    position: relative; /* Để menu overlay chỉ nằm trong phần này */
+    font-family: 'Arial', sans-serif;
 }
 
 .section1{
@@ -76,7 +71,6 @@
     background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    z-index: 5;
 }
 .dropdown:hover .dropdown-menu {
     display: block;
@@ -96,22 +90,23 @@
 .contact-button-top button:hover {
     background-color: #333;
 }
-
-.menu-button {
+.bar {
+    font-family: 'Font Awesome 6 Free'; /* Đảm bảo đã có Font Awesome */
+    font-weight: 900; /* Cài đặt độ dày của icon */
+    -webkit-font-smoothing: antialiased;
     display: none;
-   
-  }
-.overlay-menu{
-    display: none;
+    margin-left: auto; /* Đẩy sang phải */
 }
 
-body.no-scroll {
-    overflow: hidden;
+.bar::before {
+    content: '\f0c9'; /* Unicode của icon "fa-ghost" */
 }
+
+
 /* Hero Section */
 .hero-section {
     background-image: url('./images/pro.jpg'); /* Đường dẫn ảnh */
-    background-position: left ; /* Căn giữa ảnh */
+    background-position: center ; /* Căn giữa ảnh */
     background-repeat: no-repeat; /* Không lặp lại ảnh */
     background-size: cover; /* Đặt kích thước ảnh nền */
     display: flex;
@@ -120,18 +115,17 @@ body.no-scroll {
     justify-content: flex-start; /* Căn nội dung theo chiều ngang */
     color: #000;
     padding-left: 50px;
-
 }
 
 
 .content{
-    width: 59%;
+    width: 60%;
     padding: 20px;
     padding-top: 90px;
 }
 .content h1 {
-    font-size: 4vw;
-    font-weight:400;
+    font-size: 3.5vw;
+    font-weight:450;
     line-height:63.4431px;
     margin-bottom: 40px;
     line-height:80px;
@@ -282,9 +276,12 @@ body.no-scroll {
     padding-top:5vh;
     gap: 4vw; /* Khoảng cách giữa các div con */
 }
+.image-nsf{
+    max-width: 300px; /* Tăng kích thước tối đa của ảnh */
+}
 .image-nsf img{
-    max-width:25vw; /* Tăng kích thước tối đa của ảnh */
-    height: auto;
+    width: 100%;
+    border-radius: 8px;
 }
 .content-nsf h4 {
     color: #000;
@@ -292,44 +289,11 @@ body.no-scroll {
     font-size: 26px;
     font-weight: 100;
     line-height: 1.3;
+    max-width: 300px; /* Giới hạn chiều rộng đoạn văn */
 }
 .content-nsf{
     display: flex;
     align-items: center;
-    justify-content: center;
-    max-width: 300px; /* Giới hạn chiều rộng đoạn văn */
-
-}
-
-@media (max-width: 612px) {
-    .nsf-content {
-        flex-direction: column;
-        justify-content: center; /* Canh giữa theo chiều ngang */
-
-    }  
-    .image-nsf{
-       display: flex;
-       justify-content: center; /* Canh giữa theo chiều ngang */
-
-
-    }
-    .image-nsf img{
-        max-width:70vw; /* Tăng kích thước tối đa của ảnh */
-        height: auto;
-    }
-    .content-nsf{
-        max-width: none; /* Bỏ giới hạn chiều rộng */
-        padding:0px 5vw;
-
-    }
-
-    .image-nsf {
-        order: 1; /* Đảm bảo hình ảnh xuất hiện trước nội dung */
-    }
-
-    .content-nsf {
-        order: 2; /* Nội dung xuất hiện sau hình ảnh */
-    }
 }
 
 /* Let's work*/
@@ -344,13 +308,12 @@ body.no-scroll {
     align-items: center; /* Căn giữa các phần tử con theo chiều dọc */
 
 }
-
 .content-let{
     width: 600px;
 }
 
-
 .let-container button{
+    margin-left: auto; 
     border: none;
     color: #fff;
     background-color: #000;
@@ -358,9 +321,6 @@ body.no-scroll {
     font-size: 18px;
     margin-top:20px ;
     margin-bottom:8px ;
-}
-.button-container{
-    margin-left: auto; 
 }
 
 .let-container button:hover {
@@ -375,21 +335,6 @@ body.no-scroll {
 .content-let p{
     font-size: 15px;
     font-weight: 200;  
-}
-
-@media (max-width: 869px) {
-    .let-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }  
-    .content-let{
-        width: auto;
-    }
-    .button-container{
-        margin-left:0 ; 
-    }
- 
-    
 }
 
 /* Back Dasion*/
@@ -421,111 +366,30 @@ body.no-scroll {
 }
 
 .fa-linkedin {
-    color: #0077b5; /* Màxu xanh LinkedIn */
+    color: #0077b5; /* Màu xanh LinkedIn */
     font-size: 35px; /* Tùy chỉnh kích thước icon */
 }
 
-@media (max-width: 613px) {
-   
-    .back-container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-}
-}
 
 
-/* Điều chỉnh cho màn hình nhỏ hơn(ko thuộc back-list) */
+/* Điều chỉnh cho màn hình nhỏ hơn */
 
-@media (max-width: 762px) {
+@media (max-width: 681px) {
     .section1-menu{
         display:none;
     }
-    .menu-button {
-        margin-left: auto;
-        width: 40px;
-        height: 30px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        cursor: pointer;
-        position: relative;
-      }
-      .menu-button span {
-        display: block;
-        height: 4px;
-        width: 100%;
-        background: black;
-        border-radius: 2px;
-        transition: all 0.5s ease; /* Hiệu ứng chuyển động */
-      }
-  
-      /* Khi thêm class "active" */
-      .menu-button.active span:nth-child(1) {
-        transform: translateY(13px) rotate(45deg); /* Điều chỉnh đều vị trí */
-        transform-origin: center; /* Xoay từ tâm */
-      }
-  
-      .menu-button.active span:nth-child(2) {
-        transform: translateY(-13px) rotate(-45deg); /* Điều chỉnh đều vị trí */
-        transform-origin: center; /* Xoay từ tâm */
-      }
+    .bar {
+       
+        display: block; 
+    }
     .contact-button-top{
         display:none;
     }
-     /* Overlay menu */
-    .overlay-menu {
-    position: absolute;
-    top: 0;
-    right: -100%; /* Ẩn menu */
-    width: 100%;
-    height:100%;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: right 0.5s ease;
-    z-index: 5;
-    }
-
-    .overlay-menu.active {
-        right: 0; /* Hiện menu */
-    
-    }
-    
-
-
-  .overlay-menu a {
-    text-decoration: none;
-    font-size: 2rem;
-    margin: 15px 0;
-    color: black;
-    transition: color 0.3s ease;
-  }
-
-  .overlay-menu a:hover {
-    color: gray;
-  }
-
-  /* Button */
-  .overlay-menu button {
-    background: black;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 20px;
-    border-radius: 5px;
-  }
-
-  .overlay-menu button:hover {
-    background: gray;
-  }
 
 }
 
-@media (max-width: 932px) {
+
+@media (max-width: 876px) {
     .section1-menu li a {
         font-size: 13px; /* Tăng kích thước chữ trên màn hình nhỏ */
     }
@@ -543,6 +407,24 @@ body.no-scroll {
     }
 }
 
+
+@media (max-width: 876px) {
+    .section1-menu li a {
+        font-size: 13px; /* Tăng kích thước chữ trên màn hình nhỏ */
+    }
+    .contact-button-top button{ 
+        border: none;
+        color: #fff;
+        background-color: #000;
+        padding: 15px 25px;
+        font-size: 12px;
+        margin-left: 6px;
+    }
+    .section1-image img {
+        max-width: 170px;
+        height: auto;
+    }
+}
 
 
 @media (max-width: 768px) {
@@ -620,16 +502,7 @@ body.no-scroll {
   textarea {
     resize: none;
   }
-  .name h1{
-    font-weight: 400;
-    font-size: 3vw;
-  }
-
-  label {
-    font-size: 15px; /* Thay đổi kích thước font */
-    font-weight: 600; /* Tùy chọn: làm đậm chữ */
-    color: #333; /* Tùy chọn: thay đổi màu chữ */
-}
+  
   .btn {
     background-color: #000;
     color: #fff;
@@ -644,113 +517,5 @@ body.no-scroll {
   .btn:hover {
     background-color: #333;
   }
-/**********************************************************************************************/  
+  
 
-
-  .header-meet{
-    display: flex;
-    justify-content: center;
-    padding: 50px;
-  }
-
-  h1{
-    font-size: 3rem; /* Thu nhỏ font chữ */
-    color: #333;
-    font-weight: 400;
-  }
-
-  .team-container {
-    display: flex;
-    flex-wrap: wrap; /* Đảm bảo nội dung tự động xuống dòng */
-    justify-content: flex-start; /* Căn trái */
-    gap: 30px;
-    padding: 20px;
-  }
-  
-  .profile {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 20px;
-    flex-basis: calc(33.33% - 20px); /* Mỗi khối chiếm 1/3 chiều rộng */
-    transition: transform 0.3s ease, flex-basis 0.3s ease;
-  }
-  
-  .profile:hover {
-    transform: translateY(-5px);
-  }
-  
-  .profile-img {
-    width: 250px; /* Ảnh nhỏ hơn để phù hợp với các khối thu nhỏ */
-    height: 250px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-  }
-  
-  h2 {
-    font-size: 1.2rem; /* Thu nhỏ font chữ */
-    color: #333;
-    margin: 10px 0;
-  }
-  
-  h3 {
-    font-size: 1rem;
-    color: #777;
-    margin: 5px 0;
-  }
-  
-  p {
-    font-size: 0.85rem;
-    color: #555;
-    line-height: 1.4;
-  }
-  
-  /* Media Queries */
-  @media (max-width: 768px) {
-    .profile {
-      flex-basis: calc(50% - 20px); /* Mỗi khối chiếm 1/2 chiều rộng trên màn hình vừa */
-    }
-  
-    .profile-img {
-      width: 80px; /* Thu nhỏ ảnh */
-      height: 80px;
-    }
-  
-    h2 {
-      font-size: 1rem; /* Thu nhỏ font chữ */
-    }
-  
-    h3 {
-      font-size: 0.9rem;
-    }
-  
-    p {
-      font-size: 0.8rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .profile {
-      flex-basis: calc(100% - 20px); /* Mỗi khối chiếm toàn bộ chiều rộng trên màn hình nhỏ */
-    }
-  
-    .profile-img {
-      width: 70px; /* Ảnh nhỏ hơn */
-      height: 70px;
-    }
-  
-    h2 {
-      font-size: 0.9rem;
-    }
-  
-    h3 {
-      font-size: 0.8rem;
-    }
-  
-    p {
-      font-size: 0.75rem;
-    }
-  }
-  
